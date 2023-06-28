@@ -1,0 +1,31 @@
+on:
+  release:
+    types: [created]
+name: Handle release
+jobs:
+  add-dist-zip:
+    name: Add dist zip file to release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Yarn install
+        uses: Borales/actions-yarn@master
+        with:
+          cmd: install
+      - name: Yarn build
+        uses: Borales/actions-yarn@master
+        with:
+          cmd: build
+      - name: Upload file
+        uses: skx/github-action-publish-binaries@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: 'dist-zip/*.zip'

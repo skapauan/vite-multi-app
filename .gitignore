@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+dist-zip
+*.local
+node_modules/*
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
