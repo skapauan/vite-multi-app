@@ -1,6 +1,7 @@
 import '@picocss/pico/css/pico.min.css';
 
 import { FC } from 'react';
+
 import { AppTemplate } from '../../src/AppTemplate';
 
 const App: FC = () => (
